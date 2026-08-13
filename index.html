@@ -398,7 +398,7 @@
       .service-grid,
       .quote-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         border: 1px solid rgba(223, 185, 91, 0.2);
         background: linear-gradient(135deg, rgba(223, 185, 91, 0.35), rgba(126, 130, 158, 0.22));
         gap: 1px;
@@ -686,102 +686,32 @@
       }
 
       .quote {
-        min-height: 0;
-        padding: 26px;
+        min-height: 320px;
       }
 
       .quote h3 {
         margin: 0;
         color: rgba(223, 185, 91, 0.45);
-        font-size: 54px;
+        font-size: 76px;
         line-height: 0.7;
       }
 
       .quote p {
-        margin-top: 18px;
+        margin-top: 26px;
         font-family: "Cormorant Garamond", Georgia, serif;
         color: rgba(247, 243, 232, 0.9);
-        font-size: 22px;
+        font-size: 27px;
         line-height: 1.22;
       }
 
       .quote footer {
-        margin-top: 20px;
-        padding-top: 14px;
+        margin-top: 26px;
+        padding-top: 18px;
         border-top: 1px solid var(--border);
         color: var(--muted);
-        font-size: 10px;
+        font-size: 12px;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-      }
-
-      .concierge-section {
-        background:
-          radial-gradient(circle at 84% 18%, rgba(18, 62, 165, 0.22), transparent 26rem),
-          rgba(8, 11, 22, 0.42);
-        border-block: 1px solid var(--border);
-      }
-
-      .concierge-grid {
-        display: grid;
-        grid-template-columns: 1.05fr 1.1fr 0.9fr;
-        gap: 30px;
-        align-items: stretch;
-      }
-
-      .concierge-panel {
-        border: 1px solid var(--border-gold);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
-          var(--card-deep);
-        padding: 34px;
-        box-shadow: 0 36px 90px -56px rgba(0, 0, 0, 0.9);
-      }
-
-      .concierge-panel h2 {
-        margin-top: 14px;
-        font-size: clamp(32px, 3.4vw, 46px);
-      }
-
-      form.concierge-panel {
-        padding: 34px;
-      }
-
-      .map-card {
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        min-height: 100%;
-        overflow: hidden;
-        padding: 0;
-      }
-
-      .map-card header,
-      .map-card footer {
-        padding: 26px;
-      }
-
-      .map-card h3 {
-        font-size: 34px;
-      }
-
-      .map-card p {
-        margin-top: 8px;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .map-frame {
-        min-height: 280px;
-        border-block: 1px solid var(--border-gold);
-        filter: saturate(0.76) contrast(1.08);
-      }
-
-      .map-frame iframe {
-        display: block;
-        width: 100%;
-        height: 100%;
-        min-height: 280px;
-        border: 0;
       }
 
       .contact-grid {
@@ -819,7 +749,7 @@
       form {
         display: grid;
         gap: 22px;
-        padding: 34px;
+        padding: 44px;
         border: 1px solid var(--border-gold);
         background:
           linear-gradient(135deg, rgba(223, 185, 91, 0.08), transparent 34%),
@@ -953,7 +883,6 @@
         .reason-grid,
         .service-grid,
         .quote-grid,
-        .concierge-grid,
         .experience-item,
         .jewelry,
         .contact-grid,
@@ -1279,28 +1208,57 @@
         </div>
       </section>
 
-      <section class="concierge-section" id="contact">
-        <div class="container concierge-grid">
-          <div class="concierge-panel">
-            <span class="eyebrow">Voices From Our Buyers</span>
-            <h2>Private words, quietly shared</h2>
-            <div class="quote-grid" style="margin-top: 28px">
-              <figure class="quote">
-                <h3>"</h3>
-                <p>Access to private stones we would never have found through the open market.</p>
-                <footer>Daniel R. | Wholesale Buyer</footer>
-              </figure>
-              <figure class="quote">
-                <h3>"</h3>
-                <p>Calm guidance through rare Padparadscha sourcing and certification.</p>
-                <footer>Mei L. | Collector</footer>
-              </figure>
+      <section class="section-alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Trusted Worldwide</span>
+            <h2>Private words from <span class="gold-text"><em>our buyers</em></span></h2>
+          </div>
+          <div class="quote-grid">
+            <figure class="quote">
+              <h3>"</h3>
+              <p>Access to private stones we would never have found through the open market.</p>
+              <footer>Daniel R. | Wholesale Buyer</footer>
+            </figure>
+            <figure class="quote">
+              <h3>"</h3>
+              <p>Calm, knowledgeable guidance through rare Padparadscha sourcing and certification.</p>
+              <footer>Mei L. | Collector</footer>
+            </figure>
+            <figure class="quote">
+              <h3>"</h3>
+              <p>Every detail, from arrival to final export, was handled with quiet discretion.</p>
+              <footer>Andreas K. | Jeweler</footer>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container contact-grid">
+          <div>
+            <span class="eyebrow">Begin Your Journey</span>
+            <h2>Book a buying trip <span class="gold-text"><em>to Ceylon</em></span></h2>
+            <p>
+              Share your collecting goals, travel dates, or commission brief. We respond directly
+              and handle every inquiry in confidence.
+            </p>
+            <div class="contact-list">
+              <a class="contact-row" href="tel:+94774579076">
+                <span class="contact-label">Phone / WhatsApp</span>
+                <strong>+94 774 579 076</strong>
+              </a>
+              <a class="contact-row" href="https://wa.me/94774579076?text=Hello%20Aurora%20Gems%2C%20I%27d%20like%20to%20enquire" target="_blank" rel="noreferrer">
+                <span class="contact-label">WhatsApp Chat</span>
+                <strong>wa.me/94774579076</strong>
+              </a>
+              <a class="contact-row" href="https://instagram.com/Rashard_Rifkhan" target="_blank" rel="noreferrer">
+                <span class="contact-label">Instagram</span>
+                <strong>@Rashard_Rifkhan</strong>
+              </a>
             </div>
           </div>
-
-          <form class="concierge-panel" onsubmit="sendInquiry(event)">
-            <span class="eyebrow">Begin Your Journey</span>
-            <h2>Reserve a private sourcing consultation</h2>
+          <form onsubmit="sendInquiry(event)">
             <div class="form-grid">
               <div>
                 <label for="name">Full Name</label>
@@ -1327,35 +1285,6 @@
             </div>
             <button class="button gold" type="submit">Send Inquiry</button>
           </form>
-
-          <aside class="concierge-panel map-card">
-            <header>
-              <span class="eyebrow">Visit Ceylon</span>
-              <h3>Beruwala</h3>
-              <p>Sourcing appointments arranged across Beruwala, Colombo, and Bangkok.</p>
-            </header>
-            <div class="map-frame">
-              <iframe
-                title="Aurora Gems Beruwala location map"
-                src="https://www.google.com/maps?q=Beruwala,Sri+Lanka&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <footer>
-              <a class="button gold" href="https://wa.me/94774579076?text=Hello%20Aurora%20Gems%2C%20I%27d%20like%20to%20enquire" target="_blank" rel="noreferrer">WhatsApp</a>
-              <div class="contact-list">
-                <a class="contact-row" href="tel:+94774579076">
-                  <span class="contact-label">Phone</span>
-                  <strong>+94 774 579 076</strong>
-                </a>
-                <a class="contact-row" href="https://instagram.com/Rashard_Rifkhan" target="_blank" rel="noreferrer">
-                  <span class="contact-label">Instagram</span>
-                  <strong>@Rashard_Rifkhan</strong>
-                </a>
-              </div>
-            </footer>
-          </aside>
         </div>
       </section>
     </main>
