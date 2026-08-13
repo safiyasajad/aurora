@@ -19,9 +19,11 @@
         --background: #101426;
         --ink: #080b16;
         --card: #171c31;
+        --card-deep: #10172b;
         --text: #f7f3e8;
         --muted: #bdb6a8;
         --border: rgba(126, 130, 158, 0.42);
+        --border-gold: rgba(223, 185, 91, 0.32);
         --gold: #dfb95b;
         --gold-soft: #f0daa2;
         --sapphire: #123ea5;
@@ -38,7 +40,9 @@
 
       body {
         margin: 0;
-        background: var(--background);
+        background:
+          radial-gradient(circle at 20% 0%, rgba(18, 62, 165, 0.22), transparent 34rem),
+          linear-gradient(180deg, #101426 0%, #080b16 100%);
         color: var(--text);
         font-family: Inter, system-ui, sans-serif;
         line-height: 1.65;
@@ -184,9 +188,9 @@
       }
 
       .button.gold {
-        background: linear-gradient(135deg, #f5dc91, #c49137);
+        background: linear-gradient(135deg, #f8e6ad, #d9ae4e 48%, #a97423);
         color: var(--ink);
-        box-shadow: 0 20px 60px -20px rgba(223, 185, 91, 0.7);
+        box-shadow: 0 22px 70px -24px rgba(223, 185, 91, 0.9);
       }
 
       .button.outline {
@@ -308,7 +312,7 @@
       }
 
       section {
-        padding: 104px 0;
+        padding: 116px 0;
       }
 
       .section-alt {
@@ -337,16 +341,37 @@
       .quote-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        border: 1px solid var(--border);
-        background: var(--border);
+        border: 1px solid rgba(223, 185, 91, 0.2);
+        background: linear-gradient(135deg, rgba(223, 185, 91, 0.35), rgba(126, 130, 158, 0.22));
         gap: 1px;
       }
 
       .reason,
       .service,
       .quote {
-        background: var(--background);
-        padding: 34px;
+        position: relative;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+          var(--card-deep);
+        padding: 42px;
+        overflow: hidden;
+      }
+
+      .reason::after,
+      .service::after,
+      .quote::after {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid transparent;
+        pointer-events: none;
+        transition: border-color 0.35s ease;
+      }
+
+      .reason:hover::after,
+      .service:hover::after,
+      .quote:hover::after {
+        border-color: rgba(223, 185, 91, 0.24);
       }
 
       .reason small,
@@ -360,7 +385,7 @@
       .service h3,
       .quote h3 {
         margin-top: 18px;
-        font-size: 30px;
+        font-size: 32px;
       }
 
       .reason p,
@@ -511,22 +536,22 @@
       }
 
       .service ul {
-        margin: 22px 0 0;
+        margin: 26px 0 0;
         padding: 0;
         list-style: none;
       }
 
       .service li {
-        margin-top: 11px;
+        margin-top: 13px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
       .service li::before {
         content: "";
-        width: 6px;
-        height: 6px;
-        margin-top: 9px;
+        width: 18px;
+        height: 1px;
+        margin-top: 12px;
         flex: 0 0 auto;
         background: var(--gold);
       }
@@ -603,15 +628,22 @@
       }
 
       .quote {
-        background: var(--background);
+        min-height: 320px;
+      }
+
+      .quote h3 {
+        margin: 0;
+        color: rgba(223, 185, 91, 0.45);
+        font-size: 76px;
+        line-height: 0.7;
       }
 
       .quote p {
-        margin-top: 16px;
+        margin-top: 26px;
         font-family: "Cormorant Garamond", Georgia, serif;
         color: rgba(247, 243, 232, 0.9);
-        font-size: 24px;
-        line-height: 1.2;
+        font-size: 27px;
+        line-height: 1.22;
       }
 
       .quote footer {
@@ -627,33 +659,45 @@
       .contact-grid {
         display: grid;
         grid-template-columns: 5fr 7fr;
-        gap: 56px;
+        gap: 72px;
+        align-items: start;
       }
 
       .contact-list {
-        margin-top: 34px;
+        margin-top: 42px;
         display: grid;
-        gap: 18px;
+        gap: 0;
+        border-top: 1px solid var(--border-gold);
       }
 
       .contact-row {
-        padding-bottom: 18px;
-        border-bottom: 1px solid var(--border);
+        padding: 22px 0;
+        border-bottom: 1px solid var(--border-gold);
+        transition: padding-left 0.3s ease, color 0.3s ease;
+      }
+
+      .contact-row:hover {
+        padding-left: 10px;
       }
 
       .contact-row strong {
         display: block;
         margin-top: 4px;
         font-weight: 500;
-        font-size: 18px;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 25px;
       }
 
       form {
         display: grid;
-        gap: 18px;
-        padding: 36px;
-        border: 1px solid var(--border);
-        background: var(--card);
+        gap: 22px;
+        padding: 44px;
+        border: 1px solid var(--border-gold);
+        background:
+          linear-gradient(135deg, rgba(223, 185, 91, 0.08), transparent 34%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+          var(--card-deep);
+        box-shadow: 0 36px 90px -54px rgba(0, 0, 0, 0.85);
       }
 
       .form-grid {
@@ -665,7 +709,7 @@
       label {
         display: block;
         margin-bottom: 8px;
-        color: var(--muted);
+        color: rgba(240, 218, 162, 0.72);
         font-size: 10px;
         letter-spacing: 0.27em;
         text-transform: uppercase;
@@ -674,19 +718,22 @@
       input,
       textarea {
         width: 100%;
-        border: 1px solid var(--border);
+        border: 0;
+        border-bottom: 1px solid rgba(223, 185, 91, 0.28);
         border-radius: 0;
-        background: rgba(8, 11, 22, 0.38);
+        background: rgba(8, 11, 22, 0.26);
         color: var(--text);
         font: inherit;
         font-size: 14px;
-        padding: 13px 14px;
+        padding: 14px 12px;
         outline: none;
+        transition: border-color 0.3s ease, background 0.3s ease;
       }
 
       input:focus,
       textarea:focus {
-        border-color: rgba(223, 185, 91, 0.75);
+        border-color: rgba(223, 185, 91, 0.9);
+        background: rgba(8, 11, 22, 0.46);
       }
 
       textarea {
@@ -695,9 +742,11 @@
       }
 
       .site-footer {
-        border-top: 1px solid var(--border);
-        background: var(--ink);
-        padding: 48px 0 28px;
+        border-top: 1px solid var(--border-gold);
+        background:
+          radial-gradient(circle at 80% 0%, rgba(18, 62, 165, 0.2), transparent 26rem),
+          var(--ink);
+        padding: 64px 0 30px;
       }
 
       .footer-grid {
@@ -1007,34 +1056,34 @@
           <div class="section-head">
             <span class="eyebrow">Services</span>
             <h2>Every step, <span class="gold-text"><em>white-glove</em></span></h2>
-            <p>From a single certified stone to a fully escorted buying trip.</p>
+            <p>Private sourcing, travel assistance, and jewelry creation arranged with discretion.</p>
           </div>
           <div class="service-grid">
             <article class="service">
               <small>01 | Gemstone Trading</small>
               <h3>Sourcing & Wholesale</h3>
               <ul>
-                <li>Natural blue sapphires</li>
-                <li>Pink, yellow, Padparadscha, and star sapphires</li>
-                <li>Rare collector stones and wholesale parcels</li>
+                <li>Investment-grade blue sapphires</li>
+                <li>Padparadscha, pink, yellow, and star sapphires</li>
+                <li>Collector stones and discreet wholesale parcels</li>
               </ul>
             </article>
             <article class="service">
               <small>02 | Buyer Concierge</small>
               <h3>Visiting Sri Lanka</h3>
               <ul>
-                <li>Airport pickup and Beruwala accommodation</li>
-                <li>Gem market and mine visit arrangements</li>
-                <li>Export documentation support</li>
+                <li>Private arrival transfer and curated accommodation</li>
+                <li>Vetted market appointments and mine visits</li>
+                <li>Certification and export documentation support</li>
               </ul>
             </article>
             <article class="service">
               <small>03 | Custom Jewelry</small>
               <h3>Bespoke Manufacturing</h3>
               <ul>
-                <li>Engagement rings and luxury jewelry</li>
-                <li>CAD jewelry design</li>
-                <li>Master craftsmanship and gemstone setting</li>
+                <li>Engagement rings and heirloom commissions</li>
+                <li>CAD design and private stone setting</li>
+                <li>Master finishing by trusted craftsmen</li>
               </ul>
             </article>
           </div>
@@ -1106,22 +1155,22 @@
         <div class="container">
           <div class="section-head">
             <span class="eyebrow">Trusted Worldwide</span>
-            <h2>Voices from <span class="gold-text"><em>our buyers</em></span></h2>
+            <h2>Private words from <span class="gold-text"><em>our buyers</em></span></h2>
           </div>
           <div class="quote-grid">
             <figure class="quote">
               <h3>"</h3>
-              <p>Rashard's network gave us access to stones we would never have seen on the open market.</p>
+              <p>Access to private stones we would never have found through the open market.</p>
               <footer>Daniel R. | Wholesale Buyer</footer>
             </figure>
             <figure class="quote">
               <h3>"</h3>
-              <p>A genuine, knowledgeable partner for rare Padparadscha sapphires and certification.</p>
+              <p>Calm, knowledgeable guidance through rare Padparadscha sourcing and certification.</p>
               <footer>Mei L. | Collector</footer>
             </figure>
             <figure class="quote">
               <h3>"</h3>
-              <p>From airport pickup to Bangkok, every detail was handled with discretion.</p>
+              <p>Every detail, from arrival to final export, was handled with quiet discretion.</p>
               <footer>Andreas K. | Jeweler</footer>
             </figure>
           </div>
@@ -1134,8 +1183,8 @@
             <span class="eyebrow">Begin Your Journey</span>
             <h2>Book a buying trip <span class="gold-text"><em>to Ceylon</em></span></h2>
             <p>
-              Reach Aurora Gems directly by WhatsApp for the fastest response, or send a detailed
-              inquiry through the form.
+              Share your collecting goals, travel dates, or commission brief. We respond directly
+              and handle every inquiry in confidence.
             </p>
             <div class="contact-list">
               <a class="contact-row" href="tel:+94774579076">
