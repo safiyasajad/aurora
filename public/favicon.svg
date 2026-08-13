@@ -1,18 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <radialGradient id="sapphire" cx="34%" cy="24%" r="72%">
-      <stop offset="0%" stop-color="#4fd3ff" />
-      <stop offset="36%" stop-color="#1657d7" />
-      <stop offset="100%" stop-color="#061126" />
+    <radialGradient id="navy" cx="34%" cy="24%" r="72%">
+      <stop offset="0%" stop-color="#2d579a" />
+      <stop offset="48%" stop-color="#17284f" />
+      <stop offset="100%" stop-color="#080b16" />
     </radialGradient>
-    <linearGradient id="gold" x1="12" y1="8" x2="52" y2="56">
+    <linearGradient id="gold" x1="16" y1="10" x2="48" y2="54">
       <stop offset="0%" stop-color="#fff2b8" />
       <stop offset="52%" stop-color="#dfb95b" />
-      <stop offset="100%" stop-color="#a97423" />
+      <stop offset="100%" stop-color="#9f6f24" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#080b16" />
-  <path d="M32 9 52 25 32 56 12 25 32 9Z" fill="url(#sapphire)" stroke="url(#gold)" stroke-width="2.5" />
-  <path d="M12 25h40M22 25l10 31 10-31M22 25l10-16 10 16" fill="none" stroke="#f0daa2" stroke-width="1.4" opacity="0.7" />
-  <circle cx="25" cy="20" r="4" fill="#ffffff" opacity="0.28" />
+  <rect width="64" height="64" fill="#080b16" />
+  <circle cx="32" cy="32" r="25" fill="url(#navy)" stroke="url(#gold)" stroke-width="1.6" />
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+  <path
+    fill="url(#gold)"
+    d="M20.8 48h7.1v-1.1c-2.1-.3-2.6-.8-1.9-2.8l2.1-6.3h10.5l2.3 6.9c.5 1.5 0 1.9-2.2 2.2V48h10.5v-1.1c-2.3-.3-2.8-.8-3.8-3.6L34.6 14.9h-1.5L23.2 43c-1 2.8-1.6 3.5-2.4 3.9V48Zm7.9-12 4.4-13.1 4.8 13.1h-9.2Z"
+  />
 </svg>
