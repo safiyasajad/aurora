@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Aurora Sapphire Gems - a simple static landing page ready for GitHub Pages."
+      content="Aurora Gems offers premium natural Sri Lankan sapphires, buyer concierge services, mine visits, export support, and bespoke sapphire jewelry."
     />
-    <title>Aurora Sapphire Gems</title>
+    <title>Aurora Gems | Finest Natural Sri Lankan Sapphires</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #07111f;
-        --bg-soft: #0f1d2d;
-        --panel: rgba(15, 29, 45, 0.8);
-        --panel-border: rgba(148, 163, 184, 0.18);
-        --primary: #7dd3fc;
-        --secondary: #a78bfa;
-        --text: #e2e8f0;
-        --muted: #a5b4c8;
-        --accent: #5eead4;
+        --background: #101426;
+        --ink: #080b16;
+        --card: #171c31;
+        --text: #f7f3e8;
+        --muted: #bdb6a8;
+        --border: rgba(126, 130, 158, 0.42);
+        --gold: #dfb95b;
+        --gold-soft: #f0daa2;
+        --sapphire: #123ea5;
+        --transition: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       * {
@@ -31,10 +38,16 @@
 
       body {
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: radial-gradient(circle at top, #102544 0%, var(--bg) 40%, #040b12 100%);
+        background: var(--background);
         color: var(--text);
-        line-height: 1.6;
+        font-family: Inter, system-ui, sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body::selection {
+        background: var(--gold);
+        color: var(--ink);
       }
 
       a {
@@ -42,247 +55,1088 @@
         text-decoration: none;
       }
 
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 400;
+        line-height: 1.02;
+      }
+
+      p {
+        margin: 0;
+      }
+
       .container {
-        width: min(1100px, calc(100% - 2rem));
+        width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
       }
 
-      .hero {
-        min-height: 100vh;
+      .nav {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        height: 76px;
+        border-bottom: 1px solid rgba(126, 130, 158, 0.3);
+        background: rgba(16, 20, 38, 0.72);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        height: 100%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        gap: 24px;
       }
 
-      .hero-inner {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 2rem;
+      .brand {
+        display: flex;
         align-items: center;
+        gap: 12px;
       }
 
-      .eyebrow {
-        display: inline-block;
-        padding: 0.45rem 0.8rem;
-        border: 1px solid var(--panel-border);
-        background: rgba(125, 211, 252, 0.08);
-        color: var(--primary);
-        border-radius: 999px;
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
+      .mark {
+        position: relative;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(223, 185, 91, 0.55);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .mark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(18, 62, 165, 0.55), rgba(223, 185, 91, 0.12));
+      }
+
+      .mark span {
+        position: relative;
+        color: var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 22px;
+      }
+
+      .brand-name {
+        display: block;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 23px;
+        background: linear-gradient(135deg, #fff4c4, #c99432);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .brand-sub {
+        display: block;
+        margin-top: -5px;
+        color: var(--muted);
+        font-size: 9px;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
       }
 
-      h1 {
-        margin: 1rem 0 1rem;
-        font-size: clamp(2.6rem, 5vw, 5rem);
-        line-height: 0.98;
-      }
-
-      .lead {
-        max-width: 620px;
-        margin: 0 0 1.75rem;
-        color: var(--muted);
-        font-size: 1.1rem;
-      }
-
-      .actions {
+      .nav-links {
         display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
+        align-items: center;
+        gap: 34px;
+      }
+
+      .nav-links a {
+        color: rgba(247, 243, 232, 0.82);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        transition: color 0.25s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
       }
 
       .button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.9rem 1.4rem;
-        border-radius: 12px;
-        font-weight: 700;
-        transition: transform 0.2s ease, opacity 0.2s ease;
+        min-height: 48px;
+        padding: 0 28px;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        transition: transform 0.35s var(--transition), border-color 0.35s ease, background 0.35s ease;
       }
 
       .button:hover {
-        transform: translateY(-1px);
+        transform: translateY(-2px);
       }
 
-      .button.primary {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: #04111e;
+      .button.gold {
+        background: linear-gradient(135deg, #f5dc91, #c49137);
+        color: var(--ink);
+        box-shadow: 0 20px 60px -20px rgba(223, 185, 91, 0.7);
       }
 
-      .button.secondary {
-        border: 1px solid var(--panel-border);
-        background: rgba(148, 163, 184, 0.04);
-        color: var(--text);
+      .button.outline {
+        border-color: rgba(223, 185, 91, 0.55);
+        color: var(--gold-soft);
       }
 
-      .card {
-        background: var(--panel);
-        border: 1px solid var(--panel-border);
-        border-radius: 24px;
-        padding: 1.5rem;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
-        backdrop-filter: blur(8px);
-      }
-
-      .orb {
-        width: 100%;
-        aspect-ratio: 1;
-        border-radius: 24px;
-        background: linear-gradient(135deg, rgba(125, 211, 252, 0.15), rgba(167, 139, 250, 0.2));
-        border: 1px solid rgba(125, 211, 252, 0.18);
+      .hero {
         position: relative;
+        min-height: 100svh;
+        display: flex;
+        align-items: end;
+        padding: 140px 0 92px;
         overflow: hidden;
       }
 
-      .orb::before,
-      .orb::after {
+      .hero-image {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-image::after {
         content: "";
         position: absolute;
-        border-radius: 50%;
-        filter: blur(8px);
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(8, 11, 22, 0.2), rgba(8, 11, 22, 0.95)),
+          linear-gradient(90deg, rgba(8, 11, 22, 0.86), rgba(8, 11, 22, 0.3), transparent);
       }
 
-      .orb::before {
-        width: 62%;
-        height: 62%;
-        background: rgba(94, 234, 212, 0.32);
-        top: 12%;
-        left: 12%;
+      .hero-content {
+        position: relative;
+        max-width: 740px;
       }
 
-      .orb::after {
-        width: 46%;
-        height: 46%;
-        background: rgba(167, 139, 250, 0.35);
-        right: 10%;
-        bottom: 12%;
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--gold);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.31em;
+        text-transform: uppercase;
       }
 
-      .stats {
+      .eyebrow::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      h1 {
+        margin-top: 24px;
+        font-size: clamp(54px, 8vw, 104px);
+      }
+
+      .gold-text {
+        background: linear-gradient(135deg, #fff4c4, #c99432);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        margin-top: 26px;
+        max-width: 620px;
+        color: rgba(247, 243, 232, 0.76);
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 38px;
+      }
+
+      .locations {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+        margin-top: 46px;
+        color: rgba(247, 243, 232, 0.58);
+        font-size: 10px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+      }
+
+      .locations i {
+        width: 28px;
+        height: 1px;
+        background: rgba(223, 185, 91, 0.45);
+      }
+
+      .trust {
+        border-block: 1px solid var(--border);
+        background: rgba(8, 11, 22, 0.48);
+      }
+
+      .trust-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px 34px;
+        padding: 24px 0;
+        color: rgba(247, 243, 232, 0.72);
+        font-size: 11px;
+        letter-spacing: 0.23em;
+        text-transform: uppercase;
+      }
+
+      section {
+        padding: 104px 0;
+      }
+
+      .section-alt {
+        background: rgba(8, 11, 22, 0.42);
+        border-block: 1px solid var(--border);
+      }
+
+      .section-head {
+        max-width: 760px;
+        margin-bottom: 58px;
+      }
+
+      .section-head h2 {
+        margin-top: 20px;
+        font-size: clamp(40px, 6vw, 72px);
+      }
+
+      .section-head p {
+        margin-top: 22px;
+        max-width: 610px;
+        color: rgba(247, 243, 232, 0.72);
+      }
+
+      .reason-grid,
+      .service-grid,
+      .quote-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--border);
+        background: var(--border);
+        gap: 1px;
       }
 
-      .stat {
-        background: rgba(15, 29, 45, 0.7);
-        border: 1px solid var(--panel-border);
-        border-radius: 16px;
-        padding: 1rem;
+      .reason,
+      .service,
+      .quote {
+        background: var(--background);
+        padding: 34px;
       }
 
-      .stat strong {
-        display: block;
-        font-size: 1.4rem;
-        margin-bottom: 0.2rem;
+      .reason small,
+      .service small {
+        color: rgba(223, 185, 91, 0.72);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        letter-spacing: 0.2em;
       }
 
-      .section {
-        padding: 2rem 0 5rem;
+      .reason h3,
+      .service h3,
+      .quote h3 {
+        margin-top: 18px;
+        font-size: 30px;
       }
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.25rem;
-      }
-
-      .feature {
-        background: rgba(15, 29, 45, 0.7);
-        border: 1px solid var(--panel-border);
-        border-radius: 18px;
-        padding: 1.5rem;
-      }
-
-      .feature h3 {
-        margin-top: 0.7rem;
-        margin-bottom: 0.5rem;
-        font-size: 1.25rem;
-      }
-
-      .feature p,
-      .footer {
+      .reason p,
+      .service li,
+      .quote p {
         color: var(--muted);
+        font-size: 14px;
       }
 
-      .footer {
-        padding: 0 0 3rem;
-        text-align: center;
+      .reason p {
+        margin-top: 14px;
       }
 
-      @media (max-width: 860px) {
-        .hero-inner,
-        .grid {
+      .gem-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .gem-card {
+        position: relative;
+        min-height: 420px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--card);
+      }
+
+      .gem-card img {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+        transition: transform 1.2s var(--transition);
+      }
+
+      .gem-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .gem-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 25%, rgba(8, 11, 22, 0.94));
+      }
+
+      .gem-copy {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 1;
+        padding: 28px;
+      }
+
+      .gem-copy span,
+      .contact-label {
+        color: rgba(223, 185, 91, 0.82);
+        font-size: 10px;
+        letter-spacing: 0.29em;
+        text-transform: uppercase;
+      }
+
+      .gem-copy h3 {
+        margin-top: 8px;
+        font-size: 30px;
+      }
+
+      .service ul {
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .service li {
+        margin-top: 11px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .service li::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        margin-top: 9px;
+        flex: 0 0 auto;
+        background: var(--gold);
+      }
+
+      .experience-list {
+        display: grid;
+        gap: 64px;
+      }
+
+      .experience-item {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .experience-item:nth-child(even) .experience-media {
+        order: 2;
+      }
+
+      .experience-media {
+        position: relative;
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+
+      .experience-media img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .experience-number {
+        position: absolute;
+        top: 18px;
+        left: 22px;
+        color: var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 58px;
+      }
+
+      .experience-copy h3 {
+        margin-top: 10px;
+        font-size: clamp(40px, 5vw, 58px);
+      }
+
+      .experience-copy p {
+        margin-top: 18px;
+        color: rgba(247, 243, 232, 0.72);
+      }
+
+      .jewelry {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+
+      .jewelry img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border: 1px solid var(--border);
+      }
+
+      .jewelry h2 {
+        margin-top: 22px;
+        font-size: clamp(42px, 5.5vw, 70px);
+      }
+
+      .jewelry p {
+        margin-top: 22px;
+        color: rgba(247, 243, 232, 0.72);
+      }
+
+      .quote {
+        background: var(--background);
+      }
+
+      .quote p {
+        margin-top: 16px;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        color: rgba(247, 243, 232, 0.9);
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .quote footer {
+        margin-top: 26px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 56px;
+      }
+
+      .contact-list {
+        margin-top: 34px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .contact-row {
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .contact-row strong {
+        display: block;
+        margin-top: 4px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+        padding: 36px;
+        border: 1px solid var(--border);
+        background: var(--card);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.27em;
+        text-transform: uppercase;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 0;
+        background: rgba(8, 11, 22, 0.38);
+        color: var(--text);
+        font: inherit;
+        font-size: 14px;
+        padding: 13px 14px;
+        outline: none;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: rgba(223, 185, 91, 0.75);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 140px;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--border);
+        background: var(--ink);
+        padding: 48px 0 28px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 36px;
+      }
+
+      .site-footer p,
+      .site-footer li {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .site-footer ul {
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .site-footer li {
+        margin-top: 8px;
+      }
+
+      .footer-title {
+        color: var(--gold);
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .copyright {
+        margin-top: 38px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .whatsapp {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 30;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #25d366;
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 16px 42px -16px rgba(37, 211, 102, 0.8);
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          height: auto;
+          position: absolute;
+        }
+
+        .nav-inner {
+          min-height: 76px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          min-height: 92svh;
+        }
+
+        .reason-grid,
+        .service-grid,
+        .quote-grid,
+        .gem-grid,
+        .experience-item,
+        .jewelry,
+        .contact-grid,
+        .footer-grid,
+        .form-grid {
           grid-template-columns: 1fr;
         }
 
-        .stats {
-          grid-template-columns: 1fr;
+        .experience-item:nth-child(even) .experience-media {
+          order: 0;
+        }
+
+        section {
+          padding: 76px 0;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .brand-sub {
+          display: none;
+        }
+
+        .nav .button {
+          display: none;
+        }
+
+        .hero {
+          padding-bottom: 62px;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        form,
+        .reason,
+        .service,
+        .quote {
+          padding: 24px;
         }
       }
     </style>
   </head>
   <body>
-    <header class="hero">
-      <div class="container hero-inner">
-        <div>
-          <span class="eyebrow">Elegant, modern, luminous</span>
-          <h1>Aurora Sapphire Gems</h1>
-          <p class="lead">
-            Discover refined beauty, curated craftsmanship, and a digital presence designed to glow.
-            This page is ready to publish on GitHub Pages.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="#about">Learn More</a>
-            <a class="button secondary" href="#contact">Contact</a>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <strong>24/7</strong>
-              <span>Online presence</span>
-            </div>
-            <div class="stat">
-              <strong>100%</strong>
-              <span>Static hosting</span>
-            </div>
-            <div class="stat">
-              <strong>GitHub</strong>
-              <span>Pages ready</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card orb" aria-label="Aurora design illustration"></div>
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="Aurora Gems home">
+          <span class="mark"><span>A</span></span>
+          <span>
+            <span class="brand-name">Aurora Gems</span>
+            <span class="brand-sub">Ceylon | Est. Trust</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#collection">Collection</a>
+          <a href="#services">Services</a>
+          <a href="#experience">Experience</a>
+          <a href="#jewelry">Jewelry</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="button gold" href="#contact">Book a Trip</a>
       </div>
     </header>
 
-    <main class="container section" id="about">
-      <div class="grid">
-        <article class="feature">
-          <div>✨</div>
-          <h3>Refined Style</h3>
-          <p>Crafted to showcase premium aesthetics with clean typography and polished visuals.</p>
-        </article>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-image">
+          <img src="src/assets/hero-sapphire.jpg" alt="Natural royal blue Sri Lankan sapphire" />
+        </div>
+        <div class="container hero-content">
+          <span class="eyebrow">Ceylon Sapphires | Since Generations</span>
+          <h1>
+            Discover the Finest
+            <br />
+            <span class="gold-text"><em>Natural Sri Lankan</em></span>
+            <br />
+            Sapphires
+          </h1>
+          <p>
+            Direct access to premium gemstones from Sri Lanka's trusted sourcing networks. From mine
+            to market, Aurora Gems creates a complete buying experience for international gemstone
+            buyers.
+          </p>
+          <div class="hero-actions">
+            <a class="button gold" href="#contact">Book a Buying Trip</a>
+            <a class="button outline" href="#collection">View Gem Collection</a>
+          </div>
+          <div class="locations">
+            <span>Beruwala</span>
+            <i></i>
+            <span>Colombo</span>
+            <i></i>
+            <span>Bangkok</span>
+          </div>
+        </div>
+      </section>
 
-        <article class="feature">
-          <div>💎</div>
-          <h3>Brand Presence</h3>
-          <p>Build trust and clarity with a focused landing page that highlights your identity.</p>
-        </article>
-
-        <article class="feature" id="contact">
-          <div>📬</div>
-          <h3>Easy Contact</h3>
-          <p>Use this space to link to email, socials, or product information for your audience.</p>
-        </article>
+      <div class="trust">
+        <div class="container trust-grid">
+          <span>NGJA Registered</span>
+          <span>Chinfort Gem Traders Association</span>
+          <span>Ethical Sourcing</span>
+          <span>Certified Gemstones</span>
+          <span>International Trading</span>
+        </div>
       </div>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Why Aurora Gems</span>
+            <h2>Trusted by buyers <span class="gold-text"><em>across continents</em></span></h2>
+            <p>
+              A sourcing partnership built on transparency, provenance, discretion, and personal
+              service.
+            </p>
+          </div>
+          <div class="reason-grid">
+            <article class="reason">
+              <small>01</small>
+              <h3>Direct From Source</h3>
+              <p>Native Sri Lankan networks across Beruwala and Ratnapura.</p>
+            </article>
+            <article class="reason">
+              <small>02</small>
+              <h3>Buyer Concierge</h3>
+              <p>Airport pickup, accommodation support, and personal buying assistance.</p>
+            </article>
+            <article class="reason">
+              <small>03</small>
+              <h3>Certified Stones</h3>
+              <p>Independent certification and export documentation handled with care.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="collection">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Featured Collection</span>
+            <h2>A gallery of <span class="gold-text"><em>Ceylon's rarest</em></span></h2>
+            <p>Hand-selected stones representing the depth of Sri Lankan sapphire heritage.</p>
+          </div>
+          <div class="gem-grid">
+            <article class="gem-card">
+              <img src="src/assets/gem-royal-blue.jpg" alt="Royal blue sapphire" />
+              <div class="gem-copy">
+                <span>Ceylon | Heated/Unheated</span>
+                <h3>Royal Blue Sapphire</h3>
+              </div>
+            </article>
+            <article class="gem-card">
+              <img src="src/assets/gem-cornflower.jpg" alt="Cornflower blue sapphire" />
+              <div class="gem-copy">
+                <span>Ceylon | Premium</span>
+                <h3>Cornflower Blue Sapphire</h3>
+              </div>
+            </article>
+            <article class="gem-card">
+              <img src="src/assets/gem-padparadscha.jpg" alt="Padparadscha sapphire" />
+              <div class="gem-copy">
+                <span>Rare | Pinkish Orange</span>
+                <h3>Padparadscha Sapphire</h3>
+              </div>
+            </article>
+            <article class="gem-card">
+              <img src="src/assets/gem-yellow.jpg" alt="Yellow sapphire" />
+              <div class="gem-copy">
+                <span>Vivid Canary</span>
+                <h3>Yellow Sapphire</h3>
+              </div>
+            </article>
+            <article class="gem-card">
+              <img src="src/assets/gem-pink.jpg" alt="Pink sapphire" />
+              <div class="gem-copy">
+                <span>Ceylon | Hot Pink</span>
+                <h3>Pink Sapphire</h3>
+              </div>
+            </article>
+            <article class="gem-card">
+              <img src="src/assets/gem-star.jpg" alt="Star sapphire" />
+              <div class="gem-copy">
+                <span>Six-Ray Asterism</span>
+                <h3>Star Sapphire</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Services</span>
+            <h2>Every step, <span class="gold-text"><em>white-glove</em></span></h2>
+            <p>From a single certified stone to a fully escorted buying trip.</p>
+          </div>
+          <div class="service-grid">
+            <article class="service">
+              <small>01 | Gemstone Trading</small>
+              <h3>Sourcing & Wholesale</h3>
+              <ul>
+                <li>Natural blue sapphires</li>
+                <li>Pink, yellow, Padparadscha, and star sapphires</li>
+                <li>Rare collector stones and wholesale parcels</li>
+              </ul>
+            </article>
+            <article class="service">
+              <small>02 | Buyer Concierge</small>
+              <h3>Visiting Sri Lanka</h3>
+              <ul>
+                <li>Airport pickup and Beruwala accommodation</li>
+                <li>Gem market and mine visit arrangements</li>
+                <li>Export documentation support</li>
+              </ul>
+            </article>
+            <article class="service">
+              <small>03 | Custom Jewelry</small>
+              <h3>Bespoke Manufacturing</h3>
+              <ul>
+                <li>Engagement rings and luxury jewelry</li>
+                <li>CAD jewelry design</li>
+                <li>Master craftsmanship and gemstone setting</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="experience">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">The Buyer Experience</span>
+            <h2>From arrival <span class="gold-text"><em>to export</em></span></h2>
+          </div>
+          <div class="experience-list">
+            <article class="experience-item">
+              <div class="experience-media">
+                <img src="src/assets/experience-accommodation.jpg" alt="Sri Lanka accommodation experience" />
+                <span class="experience-number">I</span>
+              </div>
+              <div class="experience-copy">
+                <span class="contact-label">Step I</span>
+                <h3>Arrival</h3>
+                <p>We meet you at Bandaranaike International with private transfer to Beruwala or Colombo.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <div class="experience-media">
+                <img src="src/assets/experience-selection.jpg" alt="Sapphire selection experience" />
+                <span class="experience-number">II</span>
+              </div>
+              <div class="experience-copy">
+                <span class="contact-label">Step II</span>
+                <h3>Sourcing</h3>
+                <p>Curated gem market visits, vetted dealer introductions, and access to private inventories.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <div class="experience-media">
+                <img src="src/assets/experience-mine.jpg" alt="Sri Lankan sapphire mine visit" />
+                <span class="experience-number">III</span>
+              </div>
+              <div class="experience-copy">
+                <span class="contact-label">Step III</span>
+                <h3>Mine & Origin</h3>
+                <p>Optional visits to working sapphire mines and traditional gem cutting houses.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="jewelry">
+        <div class="container jewelry">
+          <img src="src/assets/jewelry-ring.jpg" alt="Bespoke sapphire and diamond ring" />
+          <div>
+            <span class="eyebrow">Custom Jewelry</span>
+            <h2>Bespoke pieces, <span class="gold-text"><em>set with your stone</em></span></h2>
+            <p>
+              Our atelier and CAD studio transform certified gemstones into heirloom engagement
+              rings and high jewelry, designed around each private commission.
+            </p>
+            <div class="hero-actions">
+              <a class="button gold" href="#contact">Commission a Piece</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Trusted Worldwide</span>
+            <h2>Voices from <span class="gold-text"><em>our buyers</em></span></h2>
+          </div>
+          <div class="quote-grid">
+            <figure class="quote">
+              <h3>"</h3>
+              <p>Rashard's network gave us access to stones we would never have seen on the open market.</p>
+              <footer>Daniel R. | Wholesale Buyer</footer>
+            </figure>
+            <figure class="quote">
+              <h3>"</h3>
+              <p>A genuine, knowledgeable partner for rare Padparadscha sapphires and certification.</p>
+              <footer>Mei L. | Collector</footer>
+            </figure>
+            <figure class="quote">
+              <h3>"</h3>
+              <p>From airport pickup to Bangkok, every detail was handled with discretion.</p>
+              <footer>Andreas K. | Jeweler</footer>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container contact-grid">
+          <div>
+            <span class="eyebrow">Begin Your Journey</span>
+            <h2>Book a buying trip <span class="gold-text"><em>to Ceylon</em></span></h2>
+            <p>
+              Reach Aurora Gems directly by WhatsApp for the fastest response, or send a detailed
+              inquiry through the form.
+            </p>
+            <div class="contact-list">
+              <a class="contact-row" href="tel:+94774579076">
+                <span class="contact-label">Phone / WhatsApp</span>
+                <strong>+94 774 579 076</strong>
+              </a>
+              <a class="contact-row" href="https://wa.me/94774579076?text=Hello%20Aurora%20Gems%2C%20I%27d%20like%20to%20enquire" target="_blank" rel="noreferrer">
+                <span class="contact-label">WhatsApp Chat</span>
+                <strong>wa.me/94774579076</strong>
+              </a>
+              <a class="contact-row" href="https://instagram.com/Rashard_Rifkhan" target="_blank" rel="noreferrer">
+                <span class="contact-label">Instagram</span>
+                <strong>@Rashard_Rifkhan</strong>
+              </a>
+            </div>
+          </div>
+          <form onsubmit="sendInquiry(event)">
+            <div class="form-grid">
+              <div>
+                <label for="name">Full Name</label>
+                <input id="name" name="name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div>
+                <label for="date">Intended Arrival</label>
+                <input id="date" name="date" type="date" />
+              </div>
+              <div>
+                <label for="interest">Primary Interest</label>
+                <input id="interest" name="interest" placeholder="Royal Blue Sapphires" />
+              </div>
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us about the stones or jewelry you are seeking."></textarea>
+            </div>
+            <button class="button gold" type="submit">Send Inquiry</button>
+          </form>
+        </div>
+      </section>
     </main>
 
-    <footer class="container footer">
-      © 2026 Aurora Sapphire Gems — Ready for GitHub Pages
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <span class="mark"><span>A</span></span>
+              <span class="brand-name">Aurora Gems</span>
+            </a>
+            <p style="margin-top: 18px">Connecting the world with the finest Sri Lankan sapphires.</p>
+          </div>
+          <div>
+            <div class="footer-title">Navigate</div>
+            <ul>
+              <li><a href="#collection">Collection</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-title">Reach Us</div>
+            <ul>
+              <li><a href="tel:+94774579076">+94 774 579 076</a></li>
+              <li><a href="https://wa.me/94774579076?text=Hello%20Aurora%20Gems%2C%20I%27d%20like%20to%20enquire">WhatsApp</a></li>
+              <li>Beruwala | Colombo | Bangkok</li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">Copyright 2026 Aurora Gems | Beruwala | Colombo | Bangkok</div>
+      </div>
     </footer>
+
+    <a
+      class="whatsapp"
+      href="https://wa.me/94774579076?text=Hello%20Aurora%20Gems%2C%20I%27d%20like%20to%20enquire"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      WA
+    </a>
+
+    <script>
+      function sendInquiry(event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const message = [
+          "Hello Aurora Gems,",
+          "",
+          "Name: " + (data.get("name") || ""),
+          "Email: " + (data.get("email") || ""),
+          "Arrival: " + (data.get("date") || ""),
+          "Interest: " + (data.get("interest") || ""),
+          "",
+          data.get("message") || ""
+        ].join("\n");
+
+        window.open(
+          "https://wa.me/94774579076?text=" + encodeURIComponent(message),
+          "_blank"
+        );
+      }
+    </script>
   </body>
 </html>
