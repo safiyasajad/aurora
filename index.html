@@ -375,9 +375,9 @@
       }
 
       .collection-editorial {
-        background: #fbf8f8;
-        color: #080811;
-        border-block: 0;
+        background: rgba(8, 11, 22, 0.42);
+        color: var(--text);
+        border-block: 1px solid var(--border);
       }
 
       .collection-editorial .container {
@@ -390,7 +390,7 @@
       }
 
       .collection-head h2 {
-        color: #080811;
+        color: var(--text);
         font-family: "Cormorant Garamond", Georgia, serif;
         font-size: clamp(42px, 5vw, 58px);
         font-weight: 600;
@@ -398,7 +398,7 @@
 
       .collection-head p {
         margin-top: 6px;
-        color: #263147;
+        color: rgba(247, 243, 232, 0.72);
         font-size: 12px;
       }
 
@@ -495,8 +495,8 @@
         justify-content: center;
         min-height: 48px;
         padding: 0 28px;
-        border: 1px solid #9c9a9a;
-        color: #080811;
+        border: 1px solid rgba(223, 185, 91, 0.55);
+        color: var(--gold-soft);
         background: transparent;
         font-size: 11px;
         font-weight: 700;
@@ -506,8 +506,8 @@
       }
 
       .inventory-button:hover {
-        background: #080811;
-        color: white;
+        background: rgba(223, 185, 91, 0.1);
+        color: var(--gold);
       }
 
       .service ul {
@@ -750,6 +750,7 @@
         display: grid;
         place-items: center;
         background: #25d366;
+        color: white;
         font-weight: 700;
         box-shadow: 0 16px 42px -16px rgba(37, 211, 102, 0.8);
       }
