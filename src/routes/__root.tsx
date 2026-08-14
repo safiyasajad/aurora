@@ -22,7 +22,9 @@ function NotFoundComponent() {
           The page you're looking for has drifted off course.
         </p>
         <div className="mt-8">
-          <Link to="/" className="btn-gold">Return Home</Link>
+          <Link to="/" className="btn-gold">
+            Return Home
+          </Link>
         </div>
       </div>
     </div>
@@ -44,8 +46,18 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           Please try again or return to the homepage.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <button onClick={() => { router.invalidate(); reset(); }} className="btn-gold">Try again</button>
-          <a href="/" className="btn-ghost-gold">Go home</a>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="btn-gold"
+          >
+            Try again
+          </button>
+          <a href="/" className="btn-ghost-gold">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -57,25 +69,48 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aurora Gems — Finest Natural Sri Lankan Sapphires" },
-      { name: "description", content: "Aurora Gems sources premium natural Sri Lankan sapphires and fine jewelry for international buyers, investors, and collectors. Beruwala · Colombo · Bangkok." },
+      { title: "Aurora Gems - Finest Natural Sri Lankan Sapphires" },
+      {
+        name: "description",
+        content:
+          "Aurora Gems sources premium natural Sri Lankan sapphires and fine jewelry for international buyers, investors, and collectors. Beruwala, Colombo and Bangkok.",
+      },
       { name: "author", content: "Aurora Gems" },
       { property: "og:site_name", content: "Aurora Gems" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0a1124" },
-      { property: "og:title", content: "Aurora Gems — Finest Natural Sri Lankan Sapphires" },
-      { name: "twitter:title", content: "Aurora Gems — Finest Natural Sri Lankan Sapphires" },
-      { property: "og:description", content: "Aurora Gems sources premium natural Sri Lankan sapphires and fine jewelry for international buyers, investors, and collectors. Beruwala · Colombo · Bangkok." },
-      { name: "twitter:description", content: "Aurora Gems sources premium natural Sri Lankan sapphires and fine jewelry for international buyers, investors, and collectors. Beruwala · Colombo · Bangkok." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/59b0e311-3ef7-49b9-92bd-d5611b42724f/id-preview-d9a3cf81--89c48a1a-456b-4459-8b31-c6525e785091.lovable.app-1782729484151.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/59b0e311-3ef7-49b9-92bd-d5611b42724f/id-preview-d9a3cf81--89c48a1a-456b-4459-8b31-c6525e785091.lovable.app-1782729484151.png" },
+      { property: "og:title", content: "Aurora Gems - Finest Natural Sri Lankan Sapphires" },
+      { name: "twitter:title", content: "Aurora Gems - Finest Natural Sri Lankan Sapphires" },
+      {
+        property: "og:description",
+        content:
+          "Aurora Gems sources premium natural Sri Lankan sapphires and fine jewelry for international buyers, investors, and collectors. Beruwala, Colombo and Bangkok.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Aurora Gems sources premium natural Sri Lankan sapphires and fine jewelry for international buyers, investors, and collectors. Beruwala, Colombo and Bangkok.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/59b0e311-3ef7-49b9-92bd-d5611b42724f/id-preview-d9a3cf81--89c48a1a-456b-4459-8b31-c6525e785091.lovable.app-1782729484151.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/59b0e311-3ef7-49b9-92bd-d5611b42724f/id-preview-d9a3cf81--89c48a1a-456b-4459-8b31-c6525e785091.lovable.app-1782729484151.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -106,4 +141,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
