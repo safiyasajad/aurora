@@ -701,52 +701,68 @@ function Testimonials() {
   return (
     <section className="py-24 md:py-36 bg-ink/40 border-y border-border/50">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
-        <SectionHeader
-          eyebrow="Trusted Worldwide"
-          title={
-            <>
-              Trusted by Collectors <span className="italic text-gold-gradient">Worldwide</span>
-            </>
-          }
-          intro="Experiences shared by gemstone buyers, collectors and jewellers from around the world."
-        />
-        <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <figure className="relative lg:col-span-7">
-            <div className="flex items-start justify-between gap-6 border-t border-gold/50 pt-8">
-              <div className="font-display text-7xl leading-none text-gold/30 md:text-8xl">"</div>
-              <span className="text-[10px] tracking-[0.3em] uppercase text-gold/70">01 / 03</span>
-            </div>
-            <blockquote className="mt-2 max-w-3xl font-display text-3xl leading-tight text-foreground/95 md:text-4xl lg:text-5xl">
-              {featured.q}
-            </blockquote>
-            <figcaption className="mt-10 border-t border-gold/35 pt-6">
-              <div className="text-foreground">{featured.a}</div>
-              <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
-                {featured.r}
-              </div>
-            </figcaption>
-          </figure>
+        <div className="relative overflow-hidden rounded-[2rem] border border-border/50 bg-background/55 px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-12">
+          <div className="absolute right-6 top-6 h-5 w-5 rounded-sm border border-gold/50 md:right-8 md:top-8" />
+          <div className="absolute right-9 top-3 h-5 w-5 rounded-sm border border-gold/25 md:right-11 md:top-5" />
 
-          <div className="grid gap-10 lg:col-span-5">
-            {supporting.map((t, i) => (
-              <figure key={t.a} className="border-t border-gold/35 pt-7">
-                <div className="flex items-start justify-between gap-6">
-                  <div className="font-display text-5xl leading-none text-gold/25">"</div>
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-gold/60">
-                    0{i + 2} / 03
-                  </span>
-                </div>
-                <blockquote className="mt-2 font-display text-2xl leading-snug text-foreground/90 md:text-3xl">
-                  {t.q}
+          <div className="max-w-xl">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-gold">
+              Trusted Worldwide
+            </span>
+            <h2 className="mt-10 font-display text-4xl leading-tight md:text-5xl">
+              Trusted by collectors <br />
+              <span className="italic text-gold-gradient">across the world</span>
+            </h2>
+            <p className="mt-5 text-sm leading-relaxed text-foreground/65 md:text-base">
+              Experiences shared by gemstone buyers, collectors and jewellers from around the world.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:gap-x-14 lg:gap-y-8">
+            <figure className="lg:col-span-5">
+              <div className="border-t border-gold/45 pt-7">
+                <div className="font-display text-6xl leading-none text-gold/25">"</div>
+                <blockquote className="mt-1 max-w-xl font-display text-2xl leading-snug text-foreground/95 md:text-3xl">
+                  {featured.q}
                 </blockquote>
-                <figcaption className="mt-7 border-t border-gold/20 pt-5">
-                  <div className="text-foreground">{t.a}</div>
-                  <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
-                    {t.r}
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
+              </div>
+              <figcaption className="mt-7 border-t border-gold/25 pt-4">
+                <div className="text-foreground">{featured.a}</div>
+                <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                  {featured.r}
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="lg:col-span-4 lg:col-start-6">
+              <div className="border-t border-gold/35 pt-7">
+                <div className="font-display text-5xl leading-none text-gold/20">"</div>
+                <blockquote className="mt-1 max-w-md font-display text-xl leading-snug text-foreground/90 md:text-2xl">
+                  {supporting[0].q}
+                </blockquote>
+              </div>
+              <figcaption className="mt-6 border-t border-gold/20 pt-4">
+                <div className="text-foreground">{supporting[0].a}</div>
+                <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                  {supporting[0].r}
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure className="lg:col-span-4 lg:col-start-7 lg:mt-8">
+              <div className="border-t border-gold/35 pt-7">
+                <div className="font-display text-5xl leading-none text-gold/20">"</div>
+                <blockquote className="mt-1 max-w-md font-display text-xl leading-snug text-foreground/90 md:text-2xl">
+                  {supporting[1].q}
+                </blockquote>
+              </div>
+              <figcaption className="mt-6 border-t border-gold/20 pt-4">
+                <div className="text-foreground">{supporting[1].a}</div>
+                <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                  {supporting[1].r}
+                </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>
