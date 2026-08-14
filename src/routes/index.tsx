@@ -696,6 +696,8 @@ function Testimonials() {
       r: "Jeweler / Antwerp",
     },
   ];
+  const [featured, ...supporting] = quotes;
+
   return (
     <section className="py-24 md:py-36 bg-ink/40 border-y border-border/50">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
@@ -703,27 +705,49 @@ function Testimonials() {
           eyebrow="Trusted Worldwide"
           title={
             <>
-              Voices from <span className="italic text-gold-gradient">our buyers</span>
+              Trusted by Collectors <span className="italic text-gold-gradient">Worldwide</span>
             </>
           }
+          intro="Experiences shared by gemstone buyers, collectors and jewellers from around the world."
         />
-        <div className="mt-14 grid md:grid-cols-3 gap-6 md:gap-8">
-          {quotes.map((t, i) => (
-            <figure key={i} className="border border-border/60 bg-background p-8 lg:p-10 relative">
-              <svg viewBox="0 0 24 24" className="w-8 h-8 text-gold/40" fill="currentColor">
-                <path d="M9 7H5a2 2 0 00-2 2v4a2 2 0 002 2h2v3H4v2h5v-7a4 4 0 00-4-4V9h4V7zm10 0h-4a2 2 0 00-2 2v4a2 2 0 002 2h2v3h-3v2h5v-7a4 4 0 00-4-4V9h4V7z" />
-              </svg>
-              <blockquote className="mt-5 font-display text-xl leading-snug text-foreground/90">
-                "{t.q}"
-              </blockquote>
-              <figcaption className="mt-8 pt-6 border-t border-border/60">
-                <div className="text-foreground">{t.a}</div>
-                <div className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground mt-1">
-                  {t.r}
+        <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <figure className="relative lg:col-span-7">
+            <div className="flex items-start justify-between gap-6 border-t border-gold/50 pt-8">
+              <div className="font-display text-7xl leading-none text-gold/30 md:text-8xl">"</div>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-gold/70">01 / 03</span>
+            </div>
+            <blockquote className="mt-2 max-w-3xl font-display text-3xl leading-tight text-foreground/95 md:text-4xl lg:text-5xl">
+              {featured.q}
+            </blockquote>
+            <figcaption className="mt-10 border-t border-gold/35 pt-6">
+              <div className="text-foreground">{featured.a}</div>
+              <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                {featured.r}
+              </div>
+            </figcaption>
+          </figure>
+
+          <div className="grid gap-10 lg:col-span-5">
+            {supporting.map((t, i) => (
+              <figure key={t.a} className="border-t border-gold/35 pt-7">
+                <div className="flex items-start justify-between gap-6">
+                  <div className="font-display text-5xl leading-none text-gold/25">"</div>
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-gold/60">
+                    0{i + 2} / 03
+                  </span>
                 </div>
-              </figcaption>
-            </figure>
-          ))}
+                <blockquote className="mt-2 font-display text-2xl leading-snug text-foreground/90 md:text-3xl">
+                  {t.q}
+                </blockquote>
+                <figcaption className="mt-7 border-t border-gold/20 pt-5">
+                  <div className="text-foreground">{t.a}</div>
+                  <div className="mt-1 text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
+                    {t.r}
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
